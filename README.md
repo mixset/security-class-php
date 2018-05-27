@@ -6,7 +6,11 @@ Class provides you basic methods, that secures your system.
 
 ## How to use
 
-To start using class, you need to include this class to your project, eg. use `include`,`require` or `__autoload()` function. 
+Simply, run `git clone git@github.com:mixset/security-class-php.git` in your core or lib directory.
+
+Then, use `include`, `require` or `__autoload()` function, to add Security class to your project. 
+
+
 To run tests locally, install dependencies by `composer install`.
 It will install latest `phpunit` for php 5.6 version.
 
