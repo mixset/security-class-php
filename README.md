@@ -1,25 +1,25 @@
-##Security.class.php 
------------------
+# Security class for PHP
 
-Script allows you to secure our website.
-All you need to do to start using this class is to initialize it like in **index.php** file. 
+[![Build Status](https://travis-ci.org/mixset/security-class-php.png)](https://travis-ci.org/mixset/security-class-php)
 
-How class is built?
------------------
+Class provides you basic methods, that secures your system.  
 
-Class has 11 method and 1 property. 
+## How to use
 
-Methods:
-- `init()` 
-- `isAjax()`
-- `xssClean()`
-- `request()`
-- `clean()` 
-- `urlClean()`
-- `hashPassword()`
-- `checkPassword()`
-- `passwordNeedsRehash()`
-- `getPasswordInfo()`
+To start using class, you need to include this class to your project, eg. use `include`,`require` or `__autoload()` function. 
+To run tests locally, install dependencies by `composer install`.
+It will install latest `phpunit` for php 5.6 version.
 
-Properties:
-- `$config` private property, that is consisted of two keys: *error_reporting*, *path* (check config.class.php)
+##  Contributing
+
+If you have any idea how application can be improved, please create new issue with detailed description of your idea. Thank you :)
+
+## Change log
+[03.12.2015] v1.0
+* Class release
+
+[27.05.2018] v1.1
+* Added setters and getters for app configuration
+* URL and E-mail filters added 
+* Custom exception created
+* Clean up
