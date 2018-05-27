@@ -1,6 +1,6 @@
 <?php
 
-namespace Mixset\Security;
+namespace Mixset\Security\Exceptions;
 
 class SecurityException extends \Exception
 {

@@ -4,7 +4,7 @@ namespace Mixset\Security;
 
 use ReflectionObject;
 
-require_once 'src/core/Security.php';
+require_once 'src/Security.php';
 
 class SecurityTest extends \PHPUnit_Framework_TestCase
 {

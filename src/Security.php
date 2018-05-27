@@ -1,44 +1,41 @@
 <?php
-/**
- *
- * @author Dominik Ryńko <http://rynko.pl/>
- * @license http://creativecommons.org/licenses/by-sa/3.0/pl/
-*/
 
 namespace Mixset\Security;
 
-require_once 'src/exception/SecurityException.php';
+use Mixset\Security\Exceptions\SecurityException;
+
+require_once 'src/exceptions/SecurityException.php';
 
 class Security
 {
     /**
      * @var int
-    */
+     */
     protected $errorReporting = 'E_ALL';
 
     /**
      * @var int
-    */
+     */
     protected $displayErrors = 0;
 
     /**
      * @var string
-    */
+     */
     protected $libraryPath = '/libs/';
 
     /**
      * @var string
-    */
+     */
     protected $phpVersion;
 
     /**
      * @var string
-    */
+     */
     const PASSWORD_LIB_REQUIRED_PHP = '5.5.0';
 
     /**
      * @param $value
-    */
+     */
     public function setErrorReporting($value)
     {
         $this->errorReporting = $value;
@@ -46,7 +43,7 @@ class Security
 
     /**
      * @param $value
-    */
+     */
     public function setDisplayErrors($value)
     {
         $this->displayErrors = $value;
@@ -54,7 +51,7 @@ class Security
 
     /**
      * @param $path
-    */
+     */
     public function setLibraryPath($path)
     {
         $this->libraryPath = $path;
@@ -62,7 +59,7 @@ class Security
 
     /**
      * @return int
-    */
+     */
     public function getErrorReporting()
     {
         return $this->errorReporting;
@@ -70,7 +67,7 @@ class Security
 
     /**
      * @return int
-    */
+     */
     public function getDisplayErrors()
     {
         return $this->displayErrors;
@@ -78,7 +75,7 @@ class Security
 
     /**
      * @return string
-    */
+     */
     public function getLibraryPath()
     {
         return pathinfo(__DIR__)['dirname'] . $this->libraryPath;
@@ -86,7 +83,7 @@ class Security
 
     /**
      * @param $version
-    */
+     */
     public function setPHPVersion($version)
     {
         $this->phpVersion = $version;
@@ -94,7 +91,7 @@ class Security
 
     /**
      * @return string
-    */
+     */
     public function getPHPVersion()
     {
         return $this->phpVersion;
@@ -102,7 +99,7 @@ class Security
 
     /**
      * Initialize some basic settings
-    */
+     */
     public function __construct()
     {
         $this->configureSessionConstants();
@@ -114,7 +111,7 @@ class Security
 
     /**
      * @throws SecurityException
-    */
+     */
     public function checkPHPVersion()
     {
         if (is_null($this->getPHPVersion())) {
@@ -130,7 +127,7 @@ class Security
 
     /**
      * Set error reporting configuration
-    */
+     */
     public function configureErrorReporting()
     {
         // Error reporting
@@ -142,7 +139,7 @@ class Security
 
     /**
      * Set session configuration
-    */
+     */
     private function configureSessionConstants()
     {
         // Session fixation prevention
@@ -164,7 +161,7 @@ class Security
      *
      * @param none
      * @return bool true | false
-    */
+     */
     public function isAjax()
     {
         return isset($_SERVER['HTTP_X_REQUESTED_WITH'])
@@ -178,7 +175,7 @@ class Security
      * @param  string $data
      * @return string $data
      * @Link: https://gist.github.com/mbijon/1098477
-    */
+     */
     public function xssClean($data)
     {
         // Fix &entity\n;
@@ -249,7 +246,7 @@ class Security
      *
      * @param  string $request
      * @return bool true | false
-    */
+     */
     public function request($request)
     {
         return strtolower($_SERVER['REQUEST_METHOD']) === strtolower($request);
@@ -259,7 +256,7 @@ class Security
      * @param $toFilter
      *
      * @return array|mixed
-    */
+     */
     public function clean($toFilter)
     {
         if (!is_array($toFilter)) {
@@ -280,7 +277,7 @@ class Security
      * @param int $sanitize
      *
      * @return mixed
-    */
+     */
     private function secure($string, $sanitize = FILTER_SANITIZE_STRING)
     {
         return filter_var($string, $sanitize);
@@ -289,7 +286,7 @@ class Security
     /**
      * @param  string $url
      * @return string $url
-    */
+     */
     public function urlClean($url)
     {
         return $this->cleanInput($url, FILTER_SANITIZE_URL);
@@ -299,7 +296,7 @@ class Security
      * @param $email
      *
      * @return mixed|null
-    */
+     */
     public function emailClean($email)
     {
         return $this->cleanInput($email, FILTER_SANITIZE_EMAIL);
@@ -310,7 +307,7 @@ class Security
      * @param $filter
      *
      * @return mixed|null
-    */
+     */
     public function cleanInput($input, $filter)
     {
         if (!function_exists('filter_var')) {
@@ -324,7 +321,7 @@ class Security
      * @param string  $string
      * @param string  $algorithm
      * @return string password_hash
-    */
+     */
     public function hashPassword($string, $algorithm)
     {
         if (empty($algorithm)) {
@@ -338,7 +335,7 @@ class Security
      * @param string  $password
      * @param string  $hash
      * @return string password_hash
-    */
+     */
     public function checkPassword($password, $hash)
     {
         if (empty($password) || empty($hash)) {
@@ -353,7 +350,7 @@ class Security
      * @param string $algorithm
      * @param array  $options
      * @return true | false
-    */
+     */
     public function passwordNeedsRehash($hash, $algorithm, $options)
     {
         if (empty($hash)
@@ -370,7 +367,7 @@ class Security
     /**
      * @param string $hash
      * @return null | array
-    */
+     */
     public function getPasswordInfo($hash)
     {
         return empty($hash)
