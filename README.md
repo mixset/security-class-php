@@ -1,6 +1,7 @@
 # Security class for PHP
 
 [![Build Status](https://travis-ci.org/mixset/security-class-php.png)](https://travis-ci.org/mixset/security-class-php)
+[![GitHub release](https://img.shields.io/github/release/mixset/security-class-php.svg)](https://GitHub.com/mixset/security-class-php/releases/)
 
 Class provides you basic methods, that secures your system.  
 
@@ -17,13 +18,3 @@ It will install latest `phpunit` for php 5.6 version.
 ##  Contributing
 
 If you have any idea how application can be improved, please create new issue with detailed description of your idea. Thank you :)
-
-## Change log
-[03.12.2015] v1.0
-* Class release
-
-[27.05.2018] v1.1
-* Added setters and getters for app configuration
-* URL and E-mail filters added 
-* Custom exception created
-* Clean up
