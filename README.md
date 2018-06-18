@@ -7,8 +7,13 @@ Class provides basic methods, that helps you to secure your system.
 
 ## How to use
 
-Simply, run `git clone git@github.com:mixset/security-class-php.git` in your core or lib directory.
+##### With composer
+Just run `composer require mixset/security-class-php`  
+Library will automatically add code to your vendor directory.
 
+##### Manually
+
+Simply, run `git clone git@github.com:mixset/security-class-php.git` in your core or lib directory.
 Then, use `include`, `require` or `__autoload()` function, to add Security class to your project. 
 
 
