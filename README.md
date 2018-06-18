@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/mixset/security-class-php.png)](https://travis-ci.org/mixset/security-class-php)
 [![GitHub release](https://img.shields.io/github/release/mixset/security-class-php.svg)](https://GitHub.com/mixset/security-class-php/releases/)
 
-Class provides you basic methods, that secures your system.  
+Class provides basic methods, that helps you to secure your system.  
 
 ## How to use
 
